@@ -1,0 +1,25 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.webp .atajo-contacto{background-image:url(../img/encuentra.webp);}
+.no-webp .atajo-contacto{background-image:url(../img/encuentra.jpg);}
+
+.atajo-contacto
+{
+    padding: 2rem;
+    background-size: cover;
+    background-position: center center;
+    h2,p
+    {
+        color: c.$blanco;
+    }
+    h2
+    {
+        font-weight: f.$black;
+    }
+
+    &__boton{
+        @include m.boton($bkg-color: c.$naranja, $color:c.$blanco, $darken-transition:true, $display:inline-block);
+    }
+}

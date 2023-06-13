@@ -1,0 +1,55 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+// El catálogo de anuncios va siempre dentro de la clase contenedor anuncios, así que estas son las caracterísiticas específicas de los anuncios del catálogo.
+
+.contenedor-anuncios
+{
+    @include m.flex($direction: column,$justify:space-between, $gap:3rem);
+    @include m.desktop
+    {
+        @include m.grid($columns: repeat(3,1fr));
+    }
+
+    .anuncio
+    {
+        background-color: lighten(c.$gris,5%);
+        border: 1px solid darken(c.$gris,10%);
+        h3,p{
+            margin: 0;
+        }
+
+    }
+
+    .contenido-anuncio
+    {
+        padding: 2rem;
+        text-align: center;
+        @include m.flex($direction: column, $justify:center, $gap:2rem);
+        &__precio
+        {
+            color: c.$verde;
+            font-weight: f.$bold;
+            font-size: 3rem;
+        }
+
+        &__iconos
+        {
+            justify-content: space-evenly;
+            p
+            {
+                font-weight: f.$black;
+            }
+        }
+
+        &__boton
+        {
+            @include m.boton($bkg-color:c.$naranja,$color:c.$blanco, $display:block, $darken-transition: true);
+            font-size: 2rem;
+        }
+
+    }
+
+}
+

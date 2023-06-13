@@ -1,0 +1,43 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.atajo-blog
+{
+    @include m.desktop
+    {
+        @include m.grid($columns: 2fr 1fr, $gap: 4rem);
+    }
+
+    &__opinion
+    {
+        background-color: c.$verde;
+        padding: 2rem;
+        border-radius: 2rem;
+        
+        blockquote,p
+        {
+            color: c.$blanco;
+            font-size: 1.8rem;
+        }
+
+        blockquote
+        {
+            font-size: 1.8rem;
+            padding-left: 5rem;
+            position: relative;
+            text-align: right;
+            &::before
+            {
+                content:'';
+                background-image: url(../img/comilla.svg);
+                background-repeat: no-repeat;
+                width: 4rem;
+                height: 8rem;
+                display:block;
+                position: absolute;
+                left: -1rem
+            }
+        }
+    }
+}

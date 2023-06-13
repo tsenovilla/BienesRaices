@@ -1,0 +1,43 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.password
+{
+    @include m.flex($gap: 1rem);
+    padding: 1rem;
+    width: 100%;
+    background-color: c.$blanco;
+    border: 1px solid c.$gris;
+    border-radius: 1rem;
+    // Para ponerle el focus al div (es decir, que no se remarque el cuadrado del input contraseña, ya que queda mal porque deja fuera el botón de mostrar contraseña) tenemos que desabilitarlo en el input. Div no tiene pseudo-elemento focus, así que utilizamos el que si que tiene (focus-within). Algunos navegadores usan por default el color asignado a la keyword Highlight (como Firefox) y otros usan -webkit-focus-ring-color (como Chrome). Asignamos los dos colores para cubrir todos los casos.
+    &:focus-within
+    {
+        outline: 5px auto Highlight;
+        outline: 5px auto -webkit-focus-ring-color;
+    }
+    input[type="password"],input[type="text"] // Le quitamos el borde al input de la contraseña
+    {
+        border:none;
+        &:focus // Deshabilitamos el focus.
+        {
+            outline: none;
+        }
+    }
+
+    &__button
+    {
+        fill: none;
+        width: 3rem;
+        height: auto;
+        
+        &:hover
+        {
+            cursor: pointer;
+            path
+            {
+                stroke-width: .2rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "tomas/bienes-raices",
+    "authors": [
+        {
+            "name": "Tomás Senovilla Polo",
+            "email": "tspscgs@gmail.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.7",
+        "phpmailer/phpmailer": "^6.8",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MVC\\":"./",
+            "Model\\":"./models",
+            "Controllers\\":"./controllers"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}

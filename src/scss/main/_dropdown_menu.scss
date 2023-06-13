@@ -1,0 +1,27 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.dropdown-displayed
+{
+    opacity: 1;
+    transition: opacity .5s linear; // Al poner el transition aquí, no da problemas con la transición que se genera al cambiar el tamaño del navegador :)
+}
+
+.drop-down
+{
+    @include m.tablet // En tamaño tablet o superior no hay drop-down
+    {
+        display: none;
+    }
+
+    width: 5rem;
+    height: auto;
+    fill: c.$blanco;
+    &:hover
+    {
+        cursor: pointer;
+        fill: c.$naranja;
+        transition: fill .3s ease;  
+    }
+}

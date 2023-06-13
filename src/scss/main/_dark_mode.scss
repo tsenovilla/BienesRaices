@@ -1,0 +1,130 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.dark-mode
+{
+    background-color: darken(c.$grisOscuro, 7%);
+
+    p
+    {
+        color: c.$blanco;
+    }
+
+
+    a,h1,h2,h3,h4
+    {
+        color: c.$gris;
+    }
+
+    .contenedor-anuncios
+    {
+        .anuncio
+        {
+            background-color: c.$grisOscuro;
+            border: 1px solid lighten(c.$grisOscuro,3%);
+            &__precio
+            {
+                color: c.$verde
+            }
+        }
+    }
+
+    .contenido-anuncio
+    {
+        &__iconos
+        {
+            img
+            {
+                filter: invert(90%);
+            }
+        }
+    }
+
+    .formulario
+    {
+
+        p,label, legend
+        {
+            color: c.$blanco;
+        }
+
+        input:not([type="submit"]), textarea, select, .password
+        {
+            background-color: darken(c.$gris, 50%);
+            border: none;
+            color: c.$blanco;
+            &::placeholder
+            {
+                color: c.$gris;
+            }
+        }
+    }
+
+    .timezone-select
+    {
+        background-color: darken(c.$gris, 50%);
+        border: none;
+    }
+
+    .password
+    {
+        &__button
+        {
+            filter: invert(80%);
+        }
+    }
+
+    .admin-menu__vendedores
+    {
+        &--vendedor
+        {
+            border-bottom: 1px solid darken(c.$grisOscuro,7%);
+        }
+        &--selected // La opción default siempre está presente, además tiene un borde un poco más grande
+        {
+            border-bottom: 1rem solid darken(c.$grisOscuro,7%);
+        }
+    }
+
+    .admin-list
+    {
+        &__content
+        {
+            background-color: c.$grisOscuro;
+            border: 1px solid lighten(c.$grisOscuro,3%);
+            @include m.tablet
+            {
+                background-color: inherit;
+                border:none;
+            }
+
+        }
+    }
+
+    .solicitud
+    {
+        background-color: c.$grisOscuro;
+        border: 1px solid lighten(c.$grisOscuro,3%);
+        &__detalles-contacto
+        {
+            &--icono
+            {
+                filter: invert(90%);
+            }
+        }
+    }
+}
+
+.dark-mode-button
+{
+    height: 3rem;
+    width: auto;
+    fill: c.$blanco;
+    &:hover
+    {
+        cursor: pointer;
+        fill: c.$naranja;
+        transition: fill .3s ease;
+    }
+}

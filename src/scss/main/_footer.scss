@@ -1,0 +1,25 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.footer
+{
+    background-color: c.$grisOscuro;
+    margin-bottom: 0;
+
+    .contenido-footer
+    {
+        padding: 2rem 0;
+        @include m.flex($direction: column, $align: center, $justify: space-between);
+    }
+
+    p{
+        color: c.$blanco;
+        text-align: center;
+    }
+
+    .navegacion // La navegación por defecto en dispositivos pequeños se oculta (comportamiento deseado en el header). Aquí la hacemos visible siempre
+    {
+        opacity: 1;
+    }
+}

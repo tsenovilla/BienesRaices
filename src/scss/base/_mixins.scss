@@ -1,0 +1,87 @@
+@use "sizes" as s;
+@use "fonts" as f;
+
+// Mixin para media query tamaño móvil
+@mixin phone
+{
+    @media (min-width: s.$phone)
+    {
+        @content; 
+    }
+}
+
+// Mixin para media query tamaño tablet
+@mixin tablet
+{
+    @media (min-width: s.$tablet)
+    {
+        @content; 
+    }
+}
+
+// Mixin para media query tamaño monitor escritorio
+@mixin desktop
+{
+    @media (min-width: s.$desktop)
+    {
+        @content; 
+    }
+}
+
+// Mixin para media query tamaño monitor escritorio grande
+@mixin desktopXL
+{
+    @media (min-width: s.$desktopXL)
+    {
+        @content; 
+    }
+}
+
+// Mixin para colocar un grid customizado
+@mixin grid ($columns:false, $rows: false, $areas: false, $gap: false){
+    display: grid;
+    @if $columns{grid-template-columns: $columns;}
+    @if $rows{grid-template-rows: $rows;}
+    @if $areas{grid-template-areas: $areas;}
+    @if $gap{gap: $gap;}
+}
+
+// Mixin para colocar flexbox customizado
+@mixin flex ($direction: false, $justify: false, $align: false, $gap: false)
+{
+    display: flex;
+    @if $direction {flex-direction: $direction;}
+    @if $justify {justify-content: $justify;}
+    @if $align {align-items: $align;}
+    @if $gap {gap: $gap;}
+}
+
+// Mixin para resetear los estilos de lista
+@mixin reset-list ($style: none)
+{
+    list-style: $style;
+    margin: 0;
+    padding: 0;
+}
+
+// Mixin para el estilado de botones
+@mixin boton($bkg-color, $color, $display, $darken-transition:false)
+{
+    background-color:$bkg-color;
+    color:$color;
+    border: none;
+    font-weight: f.$bold;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    text-align: center;
+    margin-top: calc(f.$separacion/2);
+    display: $display;
+    &:hover{
+        cursor: pointer;
+    //Si darken transition está indicado, queremos que la transición al ponernos sobre el botón sea oscurecer el fondo.
+        @if($darken-transition){
+            background-color: darken($bkg-color,5%);
+            transition: background-color .3s ease;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.alerta
+{
+    @include m.flex($justify: space-between, $gap: 2rem);
+    padding: 2rem;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    display: relative;
+
+    p
+    {
+        margin: 0;
+    }
+
+    &__message
+    {
+        color: c.$blanco;
+        font-size: 1.6rem;
+    }
+    &.OK
+    {
+        background-color: c.$verdeClaro;
+        border: 1px solid darken(c.$verdeClaro, 30%);
+    
+        .alerta__close
+        {
+            color: c.$verdeOscuro;
+        }
+    }
+    
+    &.KO
+    {
+        background-color: c.$rojoClaro;
+        border: 1px solid darken(c.$rojoClaro, 30%);
+    
+        .alerta__close
+        {
+            color: c.$granate;
+        }
+    }
+
+    &__close
+    {
+        font-weight: f.$black;
+        &:hover
+        {
+            cursor: pointer;
+        }
+    }
+}
+
+

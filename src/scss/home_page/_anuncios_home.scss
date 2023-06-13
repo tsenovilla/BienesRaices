@@ -1,0 +1,10 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+.ver-todas
+{
+    &__boton
+    {
+        @include m.boton($bkg-color:c.$verde, $color:c.$blanco, $display: inline-block, $darken-transition: true);
+    }
+}

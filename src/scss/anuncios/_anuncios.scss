@@ -1,0 +1,54 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.contenido-anuncio
+{
+
+    &__publicacion
+    {
+        color: c.$negro;
+        span
+        {
+            font-weight: f.$bold;
+        }
+    }
+
+    &__vendedor
+    {
+        @include m.flex($gap: 2rem, $align: center);
+        &--encabezado
+        {
+            font-weight: f.$bold;
+        }
+
+        img
+        {
+            height: 4rem;
+            width: auto;
+        }
+
+        &--telefono
+        {
+            font-weight: f.$bold;
+        }
+    }
+
+    &__iconos
+    {
+        @include m.flex($gap:3rem, $justify:flex-start);
+
+        li
+        {
+            @include m.flex($gap: 1.5rem, $justify:space-between, $align: center);
+        }
+
+        img
+        {
+            height: 3rem;
+            width: auto;
+        }
+
+        @include m.reset-list;
+    }
+}

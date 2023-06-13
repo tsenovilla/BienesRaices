@@ -1,0 +1,21 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.nosotros
+{
+    @include m.tablet
+    {
+        @include m.grid($columns: 1fr 1fr, $gap: 3rem);
+    }
+
+    h4
+    {
+        margin: 1rem 0;
+        font-size: 1.8rem;
+        @include m.tablet
+        {
+            margin:0
+        }
+    }
+}

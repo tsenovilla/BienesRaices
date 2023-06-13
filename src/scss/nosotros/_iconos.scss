@@ -1,0 +1,23 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.iconos-nosotros
+{
+    @include m.tablet
+    {
+        @include m.flex($gap:2rem, $justify: space-between);
+    }
+    &__icono
+    {
+        text-align: center;
+        img{
+            height: 10rem;
+            width: auto;
+            margin: auto; //Este margin centra los iconos
+        }
+        h3{
+            text-transform: uppercase;
+        }
+    }
+}

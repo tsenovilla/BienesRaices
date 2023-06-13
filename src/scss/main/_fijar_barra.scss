@@ -1,0 +1,26 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+@include m.tablet
+{
+    .header__fijo
+    {
+        position: fixed;
+        top:0;
+        left: 0;
+        width:100%;
+        box-shadow: .3rem .3rem .5rem c.$gris;
+    }
+
+    .salto
+    {
+        padding-top: 23rem;
+    }
+
+    .salto-homepage
+    {
+        padding-top: 90rem;
+    }
+}
+

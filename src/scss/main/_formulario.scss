@@ -1,0 +1,72 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.formulario
+{
+
+    p,label
+    {
+        color: c.$grisOscuro;
+        margin: 1rem 0 0 0;
+        font-size: 1.4rem;
+        display: block;
+    }
+
+    label
+    {
+        font-weight: f.$bold;
+        text-transform: uppercase;
+    }
+
+    legend
+    {
+        font-size: 2rem;
+        color: lighten(c.$grisOscuro,20%);
+    }
+
+    input:not([type="submit"]), textarea, select
+    {
+        padding: 1rem;
+        width: 100%;
+        background-color: c.$blanco;
+        border: 1px solid c.$gris;
+        border-radius: 1rem;
+    }
+
+    input[type="file"]
+    {
+        border:none;
+    }
+
+    .input_error
+    {
+        border: 1px solid c.$rojo !important; // Le ponemos el important porque sino el selector de arriba es más específico
+    }
+
+    textarea
+    {
+        height: 20rem;
+        resize: vertical;
+        &.resumen
+        {
+            height: 10rem;
+        }
+    }
+
+    &__radio
+    {
+        @include m.flex($gap: 3rem);
+    }
+
+    &__boton
+    {
+        @include m.boton($bkg-color: c.$verde, $color:c.$blanco, $darken-transition:true, $display: inline-block);
+    }
+
+    &__imagen
+    {
+        width:40rem;
+    }
+
+}

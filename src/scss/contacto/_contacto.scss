@@ -1,0 +1,102 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.contacto
+{
+    h4
+    {
+        font-size: 2rem;
+        font-weight: f.$regular;
+    }
+}
+
+.timezone-select
+{
+    @include m.boton($bkg-color: c.$blanco,$color: c.$negro, $display: block);
+    border: 1px solid c.$gris;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+}
+
+.overlay
+{
+    position: fixed; // Dejamos el overlay fijo y empezando desde la esquina superior izquierda.
+    top:0;
+    left: 0;
+    width:100%; // Le decimos que ocupe tome todo el espacio
+    height:100%;
+    display: grid;
+    place-items: center; // Y centramos
+    background-color: rgb(0 0 0 / 0.7); //Ponemos el fondo un poco más oscuro
+}
+
+.map_container
+{
+    width: 38rem;
+    height: 30rem;
+    @include m.tablet
+    {
+        width: 60rem;
+        height: 40rem;
+    }
+}
+
+.boton-cerrar
+{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: c.$blanco;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    &:hover
+    {
+        cursor: pointer;
+    }
+}
+
+.contacto-telefono__telefono-completo
+{
+    @include m.grid($columns: 1fr 6fr,$gap:1rem);
+    max-height: 4rem;
+}
+
+.prefijo
+{
+    width: 4rem;
+}
+
+.lista-paises
+{
+    max-height: 20rem;
+    overflow-y: scroll;
+    width: 15rem;
+    z-index: 0;
+    border-radius: 1rem;
+}
+
+.pais
+{
+    border-bottom: 1px solid c.$gris;
+    background-color: c.$grisOscuro;
+    padding: 0.5rem;
+    &:hover
+    {
+        cursor: pointer;
+    }
+}
+
+
+.formulario
+{
+    .pais
+    {
+        color: c.$blanco;
+        margin:0;
+    }
+}
+
+

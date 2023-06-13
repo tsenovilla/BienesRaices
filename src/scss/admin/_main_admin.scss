@@ -1,0 +1,125 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+
+.admin-menu
+{
+    @include m.flex($direction: column, $align: center, $justify: space-around, $gap: 2rem);
+    &__vendedores
+    {
+        max-height: 8rem; // Aquí el max-height sirve para no desplazar la tabla
+
+        p
+        {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        &--vendedor
+        {
+            @include m.boton($bkg-color: darken(c.$gris,50%), $color: c.$blanco, $display: block);
+            margin-top: 0;
+            border-bottom: 1px solid c.$blanco;
+        }
+        &--selected // La opción default siempre está presente, además tiene un borde un poco más grande
+        {
+            border-bottom: 1rem solid c.$blanco;
+        }
+
+        &--dropdown
+        {
+            overflow-y: scroll;
+            max-height: 10rem; // Aquí el max-height sirve para limitar lo grande que es el display
+        }
+
+    }
+
+    &__enlace
+    {
+        @include m.boton($bkg-color: c.$turquesa, $color: c.$blanco, $display: block, $darken-transition: true);
+        margin: 0;
+    }
+
+}
+
+.adminback-internal
+{
+    @include m.boton($bkg-color: c.$turquesa, $color: c.$blanco, $display: block, $darken-transition: true);
+}
+
+
+.admin-list
+{
+    margin-top: 2rem;
+
+    &__content
+    {
+        padding: 1rem;
+        background-color: lighten(c.$gris,5%);
+        border: 1px solid darken(c.$gris,10%);
+        margin: 1rem;
+        @include m.tablet
+        {
+            @include m.grid($columns: repeat(4,1fr), $gap: 2rem);
+            background-color: inherit;
+            border:none
+        }
+
+        &:nth-child(1)
+        {
+            display: none;
+    
+            @include m.tablet
+            {
+                @include m.grid($columns: repeat(4,1fr), $gap: 2rem);
+            }
+        }
+    }
+
+    &__header
+    {
+        @include m.tablet
+        {
+            background-color: c.$turquesa;
+            padding: 2rem;
+            margin: 0;
+            color: c.$blanco;
+        }
+    }
+
+    &__acciones
+    {
+        @include m.flex($direction: column, $align: center, $gap: 1rem, $justify: space-around);
+        &--accion:nth-child(1)
+        {
+            @include m.boton($bkg-color: c.$azul, $color:c.$blanco, $display:block, $darken-transition: true);
+            margin: 0;
+        }
+
+        &--accion:nth-child(2)
+        {
+            @include m.boton($bkg-color: c.$rojo, $color:c.$blanco, $display:block, $darken-transition: true);
+            margin:0;
+        }
+    }
+
+    &__crear
+    {
+        @include m.boton($bkg-color: c.$verde, $color:c.$blanco, $display:block, $darken-transition: true);
+    }
+
+    .formulario
+    {
+        margin-bottom: 2rem;
+        @include m.tablet
+        {
+            margin-bottom: 0;
+        }
+        label
+        {
+            margin: 0;
+        }
+    }
+
+}

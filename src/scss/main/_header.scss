@@ -1,0 +1,71 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.header
+{
+    background-color: c.$grisOscuro;
+    padding: 4rem 0 3rem 0;
+    z-index: 999;
+
+    &.inicio
+    {
+        background-position: center center;
+        background-size: cover;
+        @include m.tablet
+        {
+            min-height: 70rem;
+        }
+    }
+}
+
+.no-webp .inicio
+{
+    background-image: url(../img/header.jpg);
+}
+
+.webp .inicio
+{
+    background-image: url(../img/header.webp);
+}
+
+.barra-header{
+    @include m.flex($direction: column, $gap: 1rem, $align: center);
+    @include m.tablet
+    {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__aux
+    {
+        @include m.flex($gap: 2.5rem, $direction: column);
+        @include m.tablet
+        {
+            flex-direction: row;
+        }
+    }
+}
+
+.contenido-header
+{
+    @include m.flex($direction: column, $justify: space-between);
+    @include m.tablet
+    {
+        min-height: inherit;
+    }
+
+    .logo
+    {
+        width: 25rem;
+    }
+    h1
+    {
+        color: c.$blanco;
+        text-align: left;
+        font-weight: f.$bold;
+        line-height: 2;
+        max-width: 60rem;
+    }
+}
+

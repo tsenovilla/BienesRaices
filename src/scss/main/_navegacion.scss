@@ -1,0 +1,66 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+.navegacion
+{
+    opacity: 0;
+    @include m.flex($direction: column, $align: center);
+    @include m.tablet
+    {
+       flex-direction: row;
+       gap: 2rem;
+       opacity: 1;
+    }
+    &__enlace
+    {
+        color: c.$blanco;
+        font-size: 1.8rem;
+        &:hover
+        {
+            color: c.$naranja;
+            transition: color .3s ease;
+        }
+    }
+
+    &__idiomas
+    {
+        @include m.flex($direction: column);
+        @include m.tablet
+        {
+            overflow:visible;
+            max-height: 2.8rem;
+        }
+
+        &--idioma
+        {
+            color: c.$blanco;
+            font-size: 1.8rem;
+            &:hover
+            {
+                cursor: pointer;
+                color: c.$naranja;
+                transition: color .3s ease;
+            }
+            @include m.tablet
+            {
+                color: darken(c.$azul,20%);
+            }
+        }
+        &--selected
+        {
+            color: c.$blanco;
+            font-size: 1.8rem;
+            margin: 0;
+            span
+            {
+                font-size: 1.4rem;
+            }
+            &:hover
+            {
+                cursor: pointer;
+                color: c.$naranja;
+                transition: color .3s ease;
+            }
+        }
+    }
+}

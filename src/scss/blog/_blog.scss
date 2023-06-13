@@ -1,0 +1,76 @@
+@use '../base/colours' as c;
+@use '../base/fonts' as f;
+@use '../base/mixins' as m;
+
+.entrada-blog
+{
+    // A cada entrada del blog le metemos un pequeño border clarito para distinguirlo y un poco de padding para marcar el borde
+    border-bottom: 1px solid c.$gris;
+    padding: 1rem 0;
+
+    // Al último se lo quitamos
+    &:last-child
+    {
+        border-bottom: none;
+    }
+
+    &.includes-image
+    {
+        // En tamaños tablet, la entrada lleva la imagen a un lado y el texto a otro
+        @include m.tablet
+        {
+            @include m.grid($columns: 1fr 2fr, $gap:2rem);
+        }
+    }
+    
+    &__texto
+    {
+        h4
+        {
+            margin: 1rem 0;
+        
+            &::after //Barra decorariva verde debajo del header
+            {
+                content:"";
+                display: block;
+                width: 15rem;
+                height: .5rem;
+                background-color: c.$verde;
+                border-radius: 20%;
+            }
+        }
+
+        p
+        {
+            margin: 1rem 0;
+        }
+
+        @include m.tablet // Al separar con el grid hace falta estilar un poco el heading y el parrafo para que quede bonito
+        {
+            h4
+            {
+                margin: 0;
+                line-height: 1;
+                &::after // Como hemos quitado el margin, hay que darle un poco a la barra para que no se colapse con el heading
+                {
+                    margin-top: .3rem;
+                }
+            }
+
+            p
+            {
+                font-size: 1.5rem;
+            }
+        }
+        
+        span
+        {
+            color: c.$naranja;
+        }
+
+        a
+        {
+            color: c.$negro;
+        }
+    }
+}
