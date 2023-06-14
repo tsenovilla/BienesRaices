@@ -5,7 +5,7 @@ This project builds a website for a fictitious real state agency, with offices a
 
 The base design is of the website belongs to the course https://www.udemy.com/course/desarrollo-web-completo-con-html5-css3-js-php-y-mysql/, so all credit goes to its creator. However, as I made several changes, leading into a considerably different website, I felt worth to share this version of the website. 
 
-The project is build from scratch without using any framework, under a MVC architecture. The backend is written in PHP and MySQL, using PDO to communicate with the database. For the frontend, the information is presented via HTML embedded in PHP files, the stylesheet is written in SCSS and the client side behavior is controlled by JavaScript. Fetch API is used to communicate client and server at some points where a quick exchange of information is needed without refreshing the website. 
+The project is build from scratch without using any framework, under a MVC architecture. The backend is written in PHP and MySQL, using PDO to communicate with the database. For the frontend, the information is presented via HTML embedded in PHP files, the stylesheet is written in SCSS and the client side behavior is controlled by JavaScript. Fetch API is used to communicate client and server at some points when an exchange of information is needed, to request data to some APIs or to submit a form that has been previously prevented.
 
 In addition, the project uses the Node.js toolkit Gulp.js as development aid (see `Developing`), in order to compile the SCSS files, minimize the scripts and improve the image performance.
 

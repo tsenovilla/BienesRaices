@@ -304,7 +304,7 @@ function create_prefix_list (input, lista_sin_filtrar, search_by_name=false)
     )
     if(!lista_paises.hasChildNodes()) // Puede ser que la API devuelva cosas pero ninguna pase el filtro, por ejemplo al buscar por prefijo volvemos con toda la API, y si buscamos por país, se devuelven los países que contengan el input, sin necesidad de que sea el comienzo, por eso debemos indicar que no se ha encontrado nada en este caso también.
     {
-        not_found_message();
+        prefix_not_found();
     }
 }
 
@@ -324,7 +324,17 @@ function prefix_not_found()
     delete_prefix_list(); // Borramos lo anterior
     const not_found_message = document.createElement("P");
     const lista_paises = document.querySelector(".lista-paises");
-    not_found_message.innerHTML = "Ningún prefijo coincide con la búsqueda";
+    let message;
+    switch(idioma)
+    {
+        case "en":
+            message = "There's no prefix matching the search";
+            break;
+        case "es":
+            message = "Ningún prefijo coincide con la búsqueda";
+            break;
+    }
+    not_found_message.innerHTML = message;
     not_found_message.classList.add("pais"); // Para que tenga el mismo estilo que la búsqueda
     lista_paises.appendChild(not_found_message);
 }
